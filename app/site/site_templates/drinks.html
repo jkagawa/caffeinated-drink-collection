@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Drinks{% endblock %}
+
+{% block content %}
+<section class="text-center">
+    <div class="p-3">
+        <h2>Drinks added so far:</h2>
+        <ul class="list-unstyled">
+            {% if drinks %}
+                {% for drink in drinks %}
+                    <li>{{ drink.name }} - Caffeine per Oz: {{ drink.caffeine_per_oz }}</li>
+                {% endfor  %}
+            {% else %}
+                <li>NONE</li>
+            {% endif %}
+        </ul>
+    </div>
+</section>
+
+{% endblock %}
