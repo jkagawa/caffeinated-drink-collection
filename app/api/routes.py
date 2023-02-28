@@ -54,8 +54,8 @@ def get_single_drink(current_user_token, id):
 @token_required
 def update_drink(current_user_token, id):
     user_token = current_user_token.token
-    drink = Drink.query.filter_by(user_token=user_token, id=id).all()
-    if drink:
+    drink = Drink.query.get(id)
+    if drink and drink.user_token == user_token:
         drink.name = request.json['name']
         drink.caffeine_per_oz = request.json['caffeine_per_oz']
         drink.color = request.json['color']

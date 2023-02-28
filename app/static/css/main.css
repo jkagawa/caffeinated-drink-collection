@@ -10,9 +10,6 @@ body {
 
 .navbar-brand {
     height: 50px;
-}
-
-.navbar-brand {
     margin: 0 1rem;
 }
 
@@ -29,7 +26,15 @@ body {
 }
 
 .navbar .container {
-    background-color: black;
+    background-color: #3C3549;
+}
+
+.navbar-toggler {
+    margin: 0 10px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255,255,255,.8);
 }
 
 .form-container {
@@ -54,7 +59,3 @@ body {
     padding: 10px;
     border-radius: 10px;
 }
-
-/* * {
-    border: 1px solid red;
-} */

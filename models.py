@@ -50,15 +50,15 @@ class User(db.Model, UserMixin):
         return f'User {self.email} has been added to the database'
     
 class Drink(db.Model):
-    id = db.Column(db.String, primary_key = True)
-    name = db.Column(db.String(100), nullable = False, default='')
-    caffeine_per_oz = db.Column(db.Numeric, nullable = False, default=0)
-    color = db.Column(db.String(100), nullable = False, default='')
-    description = db.Column(db.String(150), nullable = False, default='')
-    image_url = db.Column(db.String(100), nullable = False, default='')
+    id = db.Column(db.String, primary_key=True)
+    name = db.Column(db.String(100), nullable=False, default='')
+    caffeine_per_oz = db.Column(db.Numeric, nullable=False, default=0)
+    color = db.Column(db.String(100), nullable=True, default='')
+    description = db.Column(db.String(300), nullable=True, default='')
+    image_url = db.Column(db.String(100), nullable=True, default='')
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable = False, default='')
 
-    def __init__(self, name, caffeine_per_oz, color, description, image_url, user_token):
+    def __init__(self, name, caffeine_per_oz, color='', description='', image_url='', user_token=''):
         self.id = self.set_id()
         self.name = name
         self.caffeine_per_oz = caffeine_per_oz
